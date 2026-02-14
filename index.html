@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pradnya, Be My Valentine ❤️</title>
+    <style>
+      body {
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: white;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        margin-top: 100px;
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 20px;
+        transition: 0.3s;
+      }
+
+      #yesBtn {
+        background-color: #28a745;
+        color: white;
+      }
+
+      #yesBtn:hover {
+        transform: scale(1.1);
+      }
+
+      #noBtn {
+        background-color: #dc3545;
+        color: white;
+        position: absolute;
+      }
+
+      #message {
+        font-size: 25px;
+        margin-top: 30px;
+      }
+
+      .heart {
+        position: fixed;
+        top: -10px;
+        color: red;
+        font-size: 20px;
+        animation: fall 3s linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hey Pradnya 😍</h1>
+    <p>I have something very important to ask you...</p>
+    <h2>Will You Be My Valentine? 💖</h2>
+
+    <button class="btn" id="yesBtn" onclick="sayYes()">YES 💕</button>
+    <button class="btn" id="noBtn" onmouseover="moveButton()">NO 🙈</button>
+
+    <div id="message"></div>
+
+    <script>
+      function sayYes() {
+        document.getElementById("message").innerHTML =
+          "Love you so much Bee!!! 🎉💖 Will You want something more?😎❤️";
+
+        // Create heart animation
+        for (let i = 0; i < 50; i++) {
+          createHeart();
+        }
+      }
+
+      function moveButton() {
+        var button = document.getElementById("noBtn");
+        var x = Math.random() * (window.innerWidth - 100);
+        var y = Math.random() * (window.innerHeight - 100);
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+      }
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 2 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
